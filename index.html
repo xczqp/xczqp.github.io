@@ -1,1 +1,41 @@
-hhhhhhhhnsgsb
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎回家！</title>
+</head>
+
+<body>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // 创建一个 XMLHttpRequest 对象
+    var xhr = new XMLHttpRequest();
+
+    // 设置请求方式和接口地址
+    xhr.open('GET', 'https://api.r6n.cc/tz1/数据.json', true);
+
+    // 发送请求
+    xhr.send();
+
+    // 监听请求状态改变事件
+    xhr.onreadystatechange = function() {
+        // 判断请求是否完成
+        if (xhr.readyState === 4) {
+            // 判断响应状态码
+            if (xhr.status === 200) {
+                // 解析返回的 JSON 数据
+                var 数据 = JSON.parse(xhr.responseText);
+                window.location.href = 数据.链接;
+            }
+        }
+    };
+});
+
+
+    </script>
+</body>
+
+</html>
